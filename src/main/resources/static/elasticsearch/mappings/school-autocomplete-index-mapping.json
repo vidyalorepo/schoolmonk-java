@@ -1,0 +1,30 @@
+{
+    "dynamic_templates": [
+        {
+            "phonetic_name": {
+                "match": "school_name",
+                "match_mapping_type": "string",
+                "mapping": {
+                    "analyzer": "standard",
+                    "fields": {
+                        "metaphone": {
+                            "analyzer": "metaphone",
+                            "type": "text"
+                        },
+                        "soundex": {
+                            "analyzer": "soundex",
+                            "type": "text"
+                        }
+                    },
+                    "type": "text"
+                }
+            }
+        }
+    ],
+    "properties": {
+        "school_name": {
+            "type": "search_as_you_type",
+            "max_shingle_size": 4
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "analysis": {
+        "analyzer": {
+            "metaphone": {
+                "type": "custom",
+                "tokenizer": "standard",
+                "filter": [
+                    "lowercase",
+                    "metaphone_example"
+                ]
+            },
+            "soundex": {
+                "type": "custom",
+                "tokenizer": "standard",
+                "filter": [
+                    "lowercase",
+                    "refined_soundex_example"
+                ]
+            },
+            "nysiis": {
+                "type": "custom",
+                "tokenizer": "standard",
+                "filter": [
+                    "lowercase",
+                    "nysiis_example"
+                ]
+            }
+        },
+        "filter": {
+            "metaphone_example": {
+                "encoder": "doublemetaphone",
+                "replace": false,
+                "type": "phonetic"
+            },
+            "refined_soundex_example": {
+                "type": "phonetic",
+                "encoder": "refinedsoundex",
+                "replace": false
+            },
+            "nysiis_example": {
+                "type": "phonetic",
+                "encoder": "nysiis",
+                "replace": false
+            }
+        },
+        "normalizer": {
+            "lowercase_normalizer": {
+                "type": "custom",
+                "char_filter": [],
+                "filter": [
+                    "lowercase"
+                ]
+            }
+        }
+    },
+    "index": {
+        "max_shingle_diff": 10
+    }
+}

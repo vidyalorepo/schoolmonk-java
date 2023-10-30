@@ -1,0 +1,121 @@
+{
+    "dynamic_templates": [
+        {
+            "phonetic_name": {
+                "match": "school_name",
+                "match_mapping_type": "string",
+                "mapping": {
+                    "analyzer": "standard",
+                    "fields": {
+                        "metaphone": {
+                            "analyzer": "metaphone",
+                            "type": "text"
+                        },
+                        "soundex": {
+                            "analyzer": "soundex",
+                            "type": "text"
+                        },
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    },
+                    "type": "text"
+                }
+            }
+        },
+        {
+            "phonetic_address": {
+                "match": "school_address",
+                "match_mapping_type": "string",
+                "mapping": {
+                    "analyzer": "standard",
+                    "fields": {
+                        "metaphone": {
+                            "analyzer": "metaphone",
+                            "type": "text"
+                        },
+                        "soundex": {
+                            "analyzer": "soundex",
+                            "type": "text"
+                        }
+                    },
+                    "type": "text"
+                }
+            }
+        },
+        {
+            "phonetic_city": {
+                "match": "city",
+                "match_mapping_type": "string",
+                "mapping": {
+                    "analyzer": "standard",
+                    "fields": {
+                        "metaphone": {
+                            "analyzer": "metaphone",
+                            "type": "text"
+                        },
+                        "soundex": {
+                            "analyzer": "soundex",
+                            "type": "text"
+                        },
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    },
+                    "type": "text"
+                }
+            }
+        },
+        {
+            "phonetic_board": {
+                "match": "school_board",
+                "match_mapping_type": "string",
+                "mapping": {
+                    "analyzer": "standard",
+                    "fields": {
+                        "metaphone": {
+                            "analyzer": "metaphone",
+                            "type": "text"
+                        },
+                        "soundex": {
+                            "analyzer": "soundex",
+                            "type": "text"
+                        },
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    },
+                    "type": "text"
+                }
+            }
+        },
+        {
+            "phonetic_medium": {
+                "match": "school_medium",
+                "match_mapping_type": "string",
+                "mapping": {
+                    "analyzer": "standard",
+                    "fields": {
+                        "metaphone": {
+                            "analyzer": "metaphone",
+                            "type": "text"
+                        },
+                        "soundex": {
+                            "analyzer": "soundex",
+                            "type": "text"
+                        },
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    },
+                    "type": "text"
+                }
+            }
+        }
+    ],
+    "properties": {
+        "location": {
+            "type": "geo_point"
+        }
+    }
+}

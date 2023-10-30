@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" >
+<head>
+<title>Response Handler</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+</head>
+
+<body width="100%" style="margin: 0; padding: 0; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'">
+<div style="max-width: 550px; margin: 0 auto;">
+  <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
+    <tr>
+      <td valign="top"  style="padding:15px 0 0; margin: 0 auto;"><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="height:100px;">
+          <tr>
+            <td style="text-align: center;"><a href="#"><img src="https://vidyalo.com/assets/images/logo.png" alt="" width="200px"></a></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td valign="middle"  style=""><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0 0 10px 0;padding: 15px; background:#fff; border: 1px solid #ccc; border-radius: 10px;">
+          <tr>
+            <td th:if="${hs['status_message'] == 'Y'}" style="padding:5px; text-align: center;"><img src="https://vidyalo.com/assets/images/successful.gif" alt="" width="170px"> 
+              <td th:if="${hs['status_message'] == 'N'}" style="padding:5px; text-align: center;"><img src="https://vidyalo.com/assets/images/unsuccessful.gif" alt="" width="170px"> 
+              <!-- <img src="unsuccessful.gif" alt="" width="170px"></td> -->
+          </tr>
+          <tr>
+            <td style="padding:5px; text-align: center;">
+              <h2 th:if="${hs['status_message'] == 'Y'}" style="padding: 0; margin: 0 auto; font-size: 27px; color: #77b43f; font-weight: bold;">Payment Successful</h2>
+             <h2 th:if="${hs['status_message'] == 'N'}" style="padding: 0; margin: 0 auto; font-size: 27px; color: #eb2675; font-weight: bold;">Payment UnSuccessful</h2>
+              <p th:if="${hs['status_message'] == 'Y'}" style="padding:15px 0; margin: 0 auto; font-size:18px; color: #030000; font-weight:400;">Your payment has been received.</p>
+              <p th:if="${hs['status_message'] == 'N'}" style="padding:15px 0; margin: 0 auto; font-size:18px; color: #030000; font-weight:400;">Oh no,your payment failed</p>
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0 0 10px 0;padding: 15px; background:#fff; border: 1px solid #ccc; border-radius: 10px;">
+        <tr>
+          <td style="padding: 0 0; text-align: left;"><h4 style="font-weight: 500; line-height:20px; font-size: 16px; padding: 0 0 0 0; margin:0;">Transaction Id</h4></td>
+          <td style="padding: 0 0; text-align: right;" th:text="${hs['order_id']}"><h4 style="font-weight: 500; line-height:20px; font-size: 16px; padding: 0 0 0 0; margin:0;" > </h4></td>
+        </tr>
+          <tr>
+            <td style="padding: 0 0; text-align: left;"><h4 style="font-weight: 500; line-height:20px; font-size: 16px; padding: 0 0 0 0; margin:0;"> Amount Paid</h4></td>
+            <td style="padding: 0 0; text-align: right;" th:text="${hs['amount']}"><h4 style="font-weight: 500; line-height:20px; font-size: 16px; padding: 0 0 0 0; margin:0;" > </h4></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><hr style="margin: 19px 0;"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><a href="https://vidyalo.com/#/auth/home" style="color:#fff; background:#000 none repeat scroll 0 0; padding:7px 9px;text-decoration: none;"> Back to Home</a></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
