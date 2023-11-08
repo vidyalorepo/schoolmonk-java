@@ -228,7 +228,7 @@ public class SearchService {
     private List<SchoolMstVo> getSimilarSchools(String indexName, List<SchoolMstDocument> schoolResults) {
 
         if (schoolResults.size() == 0)
-            return null;
+            return new ArrayList<>();
         List<SchoolMstVo> similarSchools = new ArrayList<>();
         List<SchoolMstDocument> schoolHits = new ArrayList<>();
         SchoolMstDocument topHit = schoolResults.get(0);

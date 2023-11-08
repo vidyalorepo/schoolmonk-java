@@ -28,5 +28,7 @@ public interface NewsArticlesDao extends JpaRepository<NewsArticlesVo, Long>{
     @Query(nativeQuery = true, value ="SELECT * FROM NEWS_ARTICLES where slug=?1")
 	NewsArticlesVo findByslug(String slug);
 	
+    @Query(nativeQuery = true, value = "SELECT COUNT(*) FROM schoolportalstage.NEWS_ARTICLES WHERE status = true")
+    int getNewsCount();
 
 }

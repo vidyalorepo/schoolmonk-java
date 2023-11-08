@@ -210,5 +210,71 @@ public class DashboardController {
 		}
 
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/testimonialcount")
+	public ResponseEntity<ApiResponse> getTestimonialCount(HttpServletRequest request){
+		LOGGER.info("DashboardController :: testimonialcount :: Entering getTestimonialCount method");
+		try {
+			return dashboardService.gettestimonialCount();
+		}  catch (SchoolmonkAppApplicationException e) {
+			e.getStackTrace();
+			return new ResponseEntity<ApiResponse>(HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/feedbackcount")
+	public ResponseEntity<ApiResponse> getFeedbackCount(HttpServletRequest request){
+		LOGGER.info("DashboardController :: feedbackcount :: Entering getFeedbackCount method");
+		try {
+			return dashboardService.getFeedbackCount();
+		}  catch (SchoolmonkAppApplicationException e) {
+			e.getStackTrace();
+			return new ResponseEntity<ApiResponse>(HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/newscount")
+	public ResponseEntity<ApiResponse> getNewsCount (HttpServletRequest request){
+		LOGGER.info("DashboardController :: newscount :: Entering getFeedbackCount method");
+		try {
+			return dashboardService.getnewsCount();
+		} catch (SchoolmonkAppApplicationException e) {
+			e.getStackTrace();
+			return new ResponseEntity<ApiResponse>(HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/blogcount")
+	public ResponseEntity<ApiResponse> getBlogCount (HttpServletRequest request){
+		LOGGER.info("DashboardController :: blogcount :: Entering getBlogCount method");
+		try {
+			return dashboardService.getBlogCount();
+		}  catch (SchoolmonkAppApplicationException e) {
+			e.getStackTrace();
+			return new ResponseEntity<ApiResponse>(HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/reviewcount")
+	public ResponseEntity<ApiResponse> getReviewcount (HttpServletRequest request) {
+		LOGGER.info("DashboardController :: reviewcount :: Entering getReviewcount method");
+		try {
+			return dashboardService.getReviewCount();
+		}  catch (SchoolmonkAppApplicationException e) {
+			e.getStackTrace();
+			return new ResponseEntity<ApiResponse>(HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/guardianenquirycount")
+	public ResponseEntity<ApiResponse> getGuardianEnquiryCount (HttpServletRequest request) {
+		LOGGER.info("DashboardController :: guardianenquirycount :: Entering getGuardianEnquiryCount method");
+		try {
+			return dashboardService.getGuardianEnquiryCount();
+		}   catch (SchoolmonkAppApplicationException e) {
+			e.getStackTrace();
+			return new ResponseEntity<ApiResponse>(HttpStatus.UNAUTHORIZED);
+		}
+	}
 
 }

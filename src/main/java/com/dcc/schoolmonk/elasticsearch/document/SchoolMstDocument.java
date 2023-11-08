@@ -33,15 +33,20 @@ public class SchoolMstDocument {
     private Double max_fees;
     @Field(type = FieldType.Double, name = "min_fees")
     private Double min_fees;
+
+    @Field(type = FieldType.Long, name = "postal_code")
+    private Long postal_code;
+
+
     @Field(type = FieldType.Auto)
     private LocationVo location;
+
+
 
     public SchoolMstDocument() {
     }
 
-    public SchoolMstDocument(Long id, String school_name, String school_address, String school_board,
-            String school_medium, String city, String state_name, String school_type, Double max_fees, Double min_fees,
-            LocationVo location) {
+    public SchoolMstDocument(Long id, String school_name, String school_address, String school_board, String school_medium, String city, String state_name, String school_type, Double max_fees, Double min_fees,  LocationVo location) {
         this.id = id;
         this.school_name = school_name;
         this.school_address = school_address;
@@ -52,14 +57,6 @@ public class SchoolMstDocument {
         this.school_type = school_type;
         this.max_fees = max_fees;
         this.min_fees = min_fees;
-        this.location = location;
-    }
-
-    public LocationVo getLocation() {
-        return location;
-    }
-
-    public void setLocation(LocationVo location) {
         this.location = location;
     }
 
@@ -143,4 +140,19 @@ public class SchoolMstDocument {
         this.min_fees = min_fees;
     }
 
+    public Long getPostal_code() {
+        return postal_code;
+    }
+
+    public void setPostal_code(Long postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public LocationVo getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationVo location) {
+        this.location = location;
+    }
 }

@@ -25,6 +25,8 @@ public interface FeedBackDao extends JpaRepository<FeedbackVo, Long> {
 	@Query(nativeQuery = true, value = "CALL countTotalByinput(:whereClause, :tableName);")
 	Long getTotalCountByInput(@Param("whereClause") String whereClause, @Param("tableName") String tableName);
 
+	@Query(nativeQuery = true, value = "SELECT COUNT(*) FROM schoolportalstage.FEEDBACK_MST")
+	int getFeedbackCount();
 }
 
 

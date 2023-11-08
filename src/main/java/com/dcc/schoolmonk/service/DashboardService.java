@@ -11,11 +11,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.dcc.schoolmonk.common.ApiResponse;
+import com.dcc.schoolmonk.dao.BlogDao;
+import com.dcc.schoolmonk.dao.FeedBackDao;
+import com.dcc.schoolmonk.dao.NewsArticlesDao;
+import com.dcc.schoolmonk.dao.ParentEnquiryDao;
 import com.dcc.schoolmonk.dao.SchoolLevelDtlDao;
 import com.dcc.schoolmonk.dao.SchoolLevelMstDao;
 import com.dcc.schoolmonk.dao.SchoolMstDao;
+import com.dcc.schoolmonk.dao.SchoolReviewDao;
+import com.dcc.schoolmonk.dao.TestimonialDao;
 import com.dcc.schoolmonk.vo.CodeValueVo;
 import com.dcc.schoolmonk.vo.IssueStateVo;
+import com.dcc.schoolmonk.vo.TestimonialVo;
 import com.dcc.schoolmonk.vo.UserTypeVo;
 
 @Service
@@ -34,6 +41,24 @@ public class DashboardService {
 
 	@Autowired
 	SchoolLevelDtlDao schoolLevelDtlDao;
+	
+	@Autowired
+	TestimonialDao testimonialDao;
+	
+	@Autowired
+	FeedBackDao feedBackDao;
+	
+	@Autowired
+	NewsArticlesDao newsArticlesDao;
+	
+	@Autowired
+	BlogDao blogDao;
+	
+	@Autowired
+	SchoolReviewDao schoolReviewDao;
+	
+	@Autowired
+	ParentEnquiryDao parentEnquiryDao;
 
 	public ResponseEntity<ApiResponse> getSchoolTypeCount() {
 		ApiResponse apiResponse = null;
@@ -139,5 +164,55 @@ public class DashboardService {
 		apiResponse = new ApiResponse(200, "data_found", "data_found successfully",
 				listOfEntries);
 		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ApiResponse> gettestimonialCount() {
+		
+		int entries;
+		
+		entries = testimonialDao.getTestimonialCount();
+		
+		ApiResponse apiResponse = new ApiResponse(200, "Success", "Data found successfully", entries);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ApiResponse> getFeedbackCount() {
+		
+		int entries;
+		entries = feedBackDao.getFeedbackCount();
+		ApiResponse apiResponse = new ApiResponse(200, "Success", "Data found successfully", entries);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ApiResponse> getnewsCount() {
+		
+		int entries;
+		entries = newsArticlesDao.getNewsCount();
+		ApiResponse apiResponse = new ApiResponse(200, "Success", "Data found successfully", entries);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ApiResponse> getBlogCount() {
+		
+		int entries;
+		entries = blogDao.getBlogCount();
+		ApiResponse apiResponse = new ApiResponse(200, "Success", "Data found successfully", entries);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ApiResponse> getReviewCount() {
+		
+		int entries;
+		entries = schoolReviewDao.getReviewCount();
+		ApiResponse apiResponse = new ApiResponse(200, "Success", "Data found successfully", entries);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ApiResponse> getGuardianEnquiryCount() {
+		
+		int entries;
+		entries = parentEnquiryDao.getGuardianEnquiryCount();
+		ApiResponse apiResponse = new ApiResponse(200, "Success", "Data found successfully", entries);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
 	}
 }

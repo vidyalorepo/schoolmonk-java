@@ -28,5 +28,8 @@ public interface SchoolReviewDao extends JpaRepository<SchoolReviewVo, Long> {
     @Transactional    
     @Query(nativeQuery = true, value = "UPDATE SCHOOL_REVIEW_MST SET is_Approved = ?1 WHERE id =?2")
 	void updateStatusById(boolean status,long id);
+	
+	@Query(nativeQuery = true, value = "SELECT COUNT(*) FROM schoolportalstage.SCHOOL_REVIEW_MST WHERE is_Approved = true")
+	int getReviewCount();
 }
 

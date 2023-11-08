@@ -27,5 +27,7 @@ public interface BlogDao extends JpaRepository<BlogMstVo, Long>{
     @Query(nativeQuery = true, value = "SELECT * FROM Blog_MST where slug = ?1")
     BlogMstVo findbySlug(String slug);
 
+    @Query(nativeQuery = true, value = "SELECT COUNT(*) FROM schoolportalstage.Blog_MST WHERE status = true")
+    int getBlogCount();
     
 }

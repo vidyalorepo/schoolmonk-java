@@ -18,4 +18,7 @@ public interface TestimonialDao extends JpaRepository<TestimonialVo, Long> {
 
         Long getTotalTestimonialsCountByInput(@Param("whereClause") String whereClause,
                         @Param("tableName") String tableName);
+        
+        @Query(nativeQuery = true, value = "SELECT COUNT(*) FROM schoolportalstage.TESTIMONIALS WHERE active = true")
+        int getTestimonialCount();
 }

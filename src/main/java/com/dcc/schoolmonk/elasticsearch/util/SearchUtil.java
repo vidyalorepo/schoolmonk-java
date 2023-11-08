@@ -54,7 +54,7 @@ public final class SearchUtil {
             SearchRequest request = new SearchRequest(indexName);
 
             String[] fields = { "city.keyword", "school_type.keyword", "school_board.keyword", "school_medium.keyword",
-                    "state_name.keyword", "min_fees", "max_fees" };
+                    "state_name.keyword", "postal_code", "min_fees", "max_fees" };
             for (String field : fields) {
 
                 AggregationBuilder aggregationBuilder = aggregationBuilder(field);

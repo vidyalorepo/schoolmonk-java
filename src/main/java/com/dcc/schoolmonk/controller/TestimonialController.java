@@ -70,7 +70,7 @@ public class TestimonialController {
         String jwtTokenHeader = request.getHeader("Authorization");
         String jwtToken = null;
         UserVo user = null;
-        String userType = null;
+        String userType = "";
         if (jwtTokenHeader != null && jwtTokenHeader.startsWith("Bearer")) {
             jwtToken = jwtTokenHeader.split(" ")[1];
             user = userService.getUserDetails(request, jwtToken);
